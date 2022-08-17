@@ -4,62 +4,121 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+<!--    <TableLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent">-->
+
+<!--        <TableRow>-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/id_tv"-->
+<!--                android:layout_column="0"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/table_borders"-->
+<!--                android:gravity="center"-->
+<!--                android:textAlignment="center" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/payment_amount_tv"-->
+<!--                android:layout_column="1"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/table_borders"-->
+<!--                android:gravity="center"-->
+<!--                android:textAlignment="center" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/principal_amount_tv"-->
+<!--                android:layout_column="2"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/table_borders"-->
+<!--                android:gravity="center"-->
+
+<!--                android:textAlignment="center" />-->
+
+
+<!--            <TextView-->
+<!--                android:id="@+id/interest_amount_tv"-->
+<!--                android:layout_column="3"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/table_borders"-->
+<!--                android:gravity="center"-->
+
+<!--                android:textAlignment="center" />-->
+
+<!--            <TextView-->
+<!--                android:id="@+id/balance_owned_tv"-->
+<!--                android:layout_column="4"-->
+<!--                android:layout_weight="1"-->
+<!--                android:background="@drawable/table_borders"-->
+<!--                android:gravity="center"-->
+
+<!--                android:textAlignment="center" />-->
+
+<!--        </TableRow>-->
+<!--    </TableLayout>-->
+
     <TableLayout
+        app:layout_constraintTop_toTopOf="parent"
+        android:id="@+id/table_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        >
 
-        <TableRow>
+        <TableRow android:background="@drawable/table_borders">
 
             <TextView
                 android:id="@+id/id_tv"
-                android:layout_column="0"
-                android:layout_weight="1"
+                android:layout_height="match_parent"
                 android:background="@drawable/table_borders"
                 android:gravity="center"
-                android:textAlignment="center" />
-
+                android:padding="10dp"
+                android:layout_column="0"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/payment_amount_tv"
-                android:layout_column="1"
                 android:layout_weight="1"
                 android:background="@drawable/table_borders"
                 android:gravity="center"
-                android:textAlignment="center" />
-
+                android:padding="10dp"
+                android:layout_column="1"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/principal_amount_tv"
-                android:layout_column="2"
                 android:layout_weight="1"
                 android:background="@drawable/table_borders"
                 android:gravity="center"
-
-                android:textAlignment="center" />
-
+                android:padding="10dp"
+                android:layout_column="2"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/interest_amount_tv"
-                android:layout_column="3"
                 android:layout_weight="1"
                 android:background="@drawable/table_borders"
                 android:gravity="center"
-
-                android:textAlignment="center" />
+                android:padding="10dp"
+                android:layout_column="3"
+                android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/balance_owned_tv"
-                android:layout_column="4"
                 android:layout_weight="1"
                 android:background="@drawable/table_borders"
                 android:gravity="center"
-
-                android:textAlignment="center" />
-
+                android:padding="10dp"
+                android:layout_column="4"
+                android:textStyle="bold" />
         </TableRow>
+
     </TableLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
