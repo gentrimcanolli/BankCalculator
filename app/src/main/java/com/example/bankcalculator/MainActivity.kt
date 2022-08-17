@@ -90,7 +90,7 @@ class MainActivity : AppCompatActivity() {
             n
         )) - 1)
 
-       return decimalFormat(pmt)
+        return decimalFormat(pmt)
 
     }
 
@@ -99,7 +99,7 @@ class MainActivity : AppCompatActivity() {
         return decimalFormat(total)
     }
 
-    private fun tableData(){
+    private fun tableData() {
 
 //        PV - loan amount
 //        PMT - monthly payment
@@ -111,20 +111,33 @@ class MainActivity : AppCompatActivity() {
         val n = getTimeInMonths()
 
         var paymentAmount = calculateLoan()
-        var principalAmount : Double
-        var interestAmount : Double
+        var principalAmount: Double
+        var interestAmount: Double
         var balanceOwned = getSum()
         var id = 0
 
-        while (balanceOwned >= 0.0){
+        while (balanceOwned > 0.0) {
 
-
-            interestAmount = balanceOwned * ( i / 365) * n * 10
+            interestAmount = balanceOwned * (i / 365) * n * 10
             principalAmount = paymentAmount - interestAmount
-            balanceOwned -= principalAmount
+            if (balanceOwned - principalAmount > 0) {
+                balanceOwned -= principalAmount
+            } else {
+                paymentAmount = principalAmount + interestAmount
+                balanceOwned = 0.0
+            }
+
             id++
 
-            paymentList.add(Payment(id, paymentAmount, decimalFormat(principalAmount), decimalFormat(interestAmount), decimalFormat(balanceOwned)))
+            paymentList.add(
+                Payment(
+                    id,
+                    paymentAmount,
+                    decimalFormat(principalAmount),
+                    decimalFormat(interestAmount),
+                    decimalFormat(balanceOwned)
+                )
+            )
         }
 
 
