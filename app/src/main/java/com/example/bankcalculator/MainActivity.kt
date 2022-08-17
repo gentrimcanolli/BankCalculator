@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import java.math.RoundingMode
 import java.text.DecimalFormat
+import kotlin.math.abs
 import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
@@ -123,8 +124,10 @@ class MainActivity : AppCompatActivity() {
             if (balanceOwned - principalAmount > 0) {
                 balanceOwned -= principalAmount
             } else {
-                paymentAmount = principalAmount + interestAmount
-                balanceOwned = 0.0
+                val temp = balanceOwned - principalAmount
+                interestAmount = abs(temp)
+                paymentAmount = decimalFormat(principalAmount + interestAmount)
+                balanceOwned = paymentAmount - (principalAmount + interestAmount)
             }
 
             id++
