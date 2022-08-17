@@ -79,55 +79,50 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/calculate_btn">
 
-        <TableRow android:background="@drawable/table_borders">
+        <TableRow>
 
             <TextView
                 android:id="@+id/id_tv"
                 android:layout_height="match_parent"
-                android:background="@drawable/table_borders"
+                android:layout_column="0"
                 android:gravity="center"
                 android:padding="10dp"
-                android:layout_column="0"
                 android:text="#"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/payment_amount_tv"
+                android:layout_column="1"
                 android:layout_weight="1"
-                android:background="@drawable/table_borders"
                 android:gravity="center"
                 android:padding="10dp"
-                android:layout_column="1"
                 android:text="Payment Amount"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/principal_amount_tv"
+                android:layout_column="2"
                 android:layout_weight="1"
-                android:background="@drawable/table_borders"
                 android:gravity="center"
                 android:padding="10dp"
-                android:layout_column="2"
                 android:text="Principal Amount"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/interest_amount_tv"
+                android:layout_column="3"
                 android:layout_weight="1"
-                android:background="@drawable/table_borders"
                 android:gravity="center"
                 android:padding="10dp"
-                android:layout_column="3"
                 android:text="Interest Amount"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/balance_owned_tv"
+                android:layout_column="4"
                 android:layout_weight="1"
-                android:background="@drawable/table_borders"
                 android:gravity="center"
                 android:padding="10dp"
-                android:layout_column="4"
                 android:text="Balance Owned"
                 android:textStyle="bold" />
         </TableRow>
@@ -139,7 +134,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="8dp"
-        android:background="@drawable/table_borders"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/table_layout" />
