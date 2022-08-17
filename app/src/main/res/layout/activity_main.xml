@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <EditText
+        android:id="@+id/sum_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Shuma"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/interes_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Interes"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/sum_et" />
+
+    <EditText
+        android:id="@+id/months_et"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:hint="Kohezgjatja ne muaj"
+        android:importantForAutofill="no"
+        android:inputType="numberDecimal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/interes_et" />
+
+    <TextView
+        android:id="@+id/kesti_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Kesti mujor: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/months_et" />
+
+    <TextView
+        android:id="@+id/total_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Totali: "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/kesti_tv" />
+
+    <Button
+        android:id="@+id/calculate_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:text="Kalkulo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/total_tv" />
+
+    <TableLayout
+        android:id="@+id/table_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/calculate_btn">
+
+        <TableRow android:background="@drawable/table_borders">
+
+            <TextView
+                android:id="@+id/id_tv"
+                android:layout_height="match_parent"
+                android:background="@drawable/table_borders"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_column="0"
+                android:text="#"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/payment_amount_tv"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_column="1"
+                android:text="Payment Amount"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/principal_amount_tv"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_column="2"
+                android:text="Principal Amount"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/interest_amount_tv"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_column="3"
+                android:text="Interest Amount"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/balance_owned_tv"
+                android:layout_weight="1"
+                android:background="@drawable/table_borders"
+                android:gravity="center"
+                android:padding="10dp"
+                android:layout_column="4"
+                android:text="Balance Owned"
+                android:textStyle="bold" />
+        </TableRow>
+
+    </TableLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:background="@drawable/table_borders"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/table_layout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
