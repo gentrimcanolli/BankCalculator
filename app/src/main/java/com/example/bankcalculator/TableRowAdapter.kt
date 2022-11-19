@@ -23,7 +23,6 @@ class TableRowAdapter(private var paymentArrayList: ArrayList<Payment>) :
             balanceOwnedTv = view.findViewById(R.id.balance_owned_tv)
             principalAmountTv = view.findViewById(R.id.principal_amount_tv)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,9 +36,7 @@ class TableRowAdapter(private var paymentArrayList: ArrayList<Payment>) :
         holder.interestAmountTv.text = paymentArrayList[position].interestAmount.toString()
         holder.balanceOwnedTv.text = paymentArrayList[position].balanceOwned.toString()
         holder.principalAmountTv.text = paymentArrayList[position].principalAmount.toString()
-
     }
 
     override fun getItemCount(): Int = paymentArrayList.size
-
 }

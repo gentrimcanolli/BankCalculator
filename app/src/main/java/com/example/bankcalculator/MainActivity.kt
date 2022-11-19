@@ -2,7 +2,6 @@ package com.example.bankcalculator
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.TextUtils
 import android.widget.*
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -13,31 +12,28 @@ import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
     private lateinit var sumEt: EditText
-    private lateinit var interesEt: EditText
+    private lateinit var interestEt: EditText
     private lateinit var timeInMonthsEt: EditText
-    private lateinit var kestTv: TextView
+    private lateinit var loanTv: TextView
     private lateinit var totalTv: TextView
     private lateinit var btnCalculate: Button
     private lateinit var btnClear: Button
     private lateinit var tableRecyclerView: RecyclerView
     private var paymentList = ArrayList<Payment>()
     private lateinit var tableRowAdapter: TableRowAdapter
-    private lateinit var payment: Payment
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         initUI()
 
-
         btnCalculate.setOnClickListener {
 
-            if (sumEt.text.isEmpty() || interesEt.text.isEmpty() || timeInMonthsEt.text.isEmpty()) {
+            if (sumEt.text.isEmpty() || interestEt.text.isEmpty() || timeInMonthsEt.text.isEmpty()) {
                 Toast.makeText(this, "All fields are required!", Toast.LENGTH_SHORT).show()
             } else {
-                kestTv.text = "Payment every month: ${calculateLoan()}"
-                totalTv.text = "Total: ${calculateTotal()}"
+                loanTv.text = "Payment every month: ${calculateLoan()}€"
+                totalTv.text = "Total: ${calculateTotal()}€"
 
                 tableData()
 
@@ -48,21 +44,26 @@ class MainActivity : AppCompatActivity() {
                 tableRecyclerView.adapter = tableRowAdapter
             }
 
+            btnClear.setOnClickListener {
+                sumEt.setText("")
+                interestEt.setText("")
+                timeInMonthsEt.setText("")
+                loanTv.text = "Payment every month:"
+                totalTv.text = "Total:"
+                paymentList.clear()
+                tableRowAdapter.notifyDataSetChanged()
+            }
         }
-
     }
-
 
     private fun initUI() {
         sumEt = findViewById(R.id.sum_et)
-        interesEt = findViewById(R.id.interes_et)
+        interestEt = findViewById(R.id.interes_et)
         timeInMonthsEt = findViewById(R.id.months_et)
-        kestTv = findViewById(R.id.kesti_tv)
+        loanTv = findViewById(R.id.kesti_tv)
         totalTv = findViewById(R.id.total_tv)
         btnCalculate = findViewById(R.id.calculate_btn)
         btnClear = findViewById(R.id.clear_btn)
-
-
     }
 
     private fun getSum(): Double {
@@ -70,7 +71,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun getInterest(): Double {
-        return (interesEt.text.toString().toDouble()) / 1200
+        return (interestEt.text.toString().toDouble()) / 1200
     }
 
     private fun getTimeInMonths(): Double {
@@ -82,11 +83,9 @@ class MainActivity : AppCompatActivity() {
         df.roundingMode = RoundingMode.DOWN
 
         return df.format(number).toDouble()
-
     }
 
     private fun calculateLoan(): Double {
-
 //        PV - loan amount
 //        PMT - monthly payment
 //        i - interest rate per month
@@ -101,7 +100,6 @@ class MainActivity : AppCompatActivity() {
         )) - 1)
 
         return decimalFormat(pmt)
-
     }
 
     private fun calculateTotal(): Double {
@@ -110,7 +108,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun tableData() {
-
 //        PMT - monthly payment
 //        i - interest rate per month
 //        n - number of months
@@ -137,8 +134,6 @@ class MainActivity : AppCompatActivity() {
                 balanceOwned = paymentAmount - (principalAmount + interestAmount)
             }
 
-
-
             paymentList.add(
                 Payment(
                     id,
@@ -148,7 +143,6 @@ class MainActivity : AppCompatActivity() {
                     decimalFormat(abs(balanceOwned))
                 )
             )
-
             id++
         }
     }
